@@ -1,43 +1,39 @@
 package piscine
 
 func LoafOfBread(str string) string {
-	if len(str) < 5 {
+	// Remove all spaces first to simplify
+	noSpaces := ""
+	for _, char := range str {
+		if char != ' ' {
+			noSpaces += string(char)
+		}
+	}
+
+	if len(noSpaces) < 5 {
 		return "Invalid Output\n"
 	}
 
 	result := ""
-	count := 0
-	skip := false
+	i := 0
 
-	for i := 0; i < len(str); i++ {
-		// Skip spaces when counting characters
-		if str[i] == ' ' {
-			continue
+	for i < len(noSpaces) {
+		// Take 5 characters
+		end := i + 5
+		if end > len(noSpaces) {
+			end = len(noSpaces)
 		}
+		result += noSpaces[i:end]
+		i = end
 
-		// Skip one non-space character after every 5 characters
-		if skip {
-			skip = false
-			continue
-		}
+		// Skip one character
+		i++
 
-		// Add non-space character to result
-		result += string(str[i])
-		count++
-
-		// After 5 characters, add space and mark to skip next non-space
-		if count == 5 {
+		// Add space if there are more characters to process
+		if i < len(noSpaces) {
 			result += " "
-			count = 0
-			skip = true
 		}
 	}
 
-	// Remove trailing space if exists and add newline
-	if len(result) > 0 && result[len(result)-1] == ' ' {
-		result = result[:len(result)-1]
-	}
 	result += "\n"
-
 	return result
 }
