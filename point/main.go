@@ -8,7 +8,6 @@ type point struct {
 }
 
 func setPoint(ptr *point) {
-
 	ptr.x = '*'
 	ptr.y = ptr.x / 2
 }
