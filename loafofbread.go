@@ -1,6 +1,6 @@
 package piscine
 
-func LastOfBread(str string) string {
+func LoafOfBread(str string) string {
 	runes := []rune(str)
 	n := len(runes)
 	i := 0
