@@ -17,16 +17,21 @@ func LoafOfBread(str string) string {
 	i := 0
 
 	for i < len(noSpaces) {
-		// Take 5 characters
-		end := i + 5
-		if end > len(noSpaces) {
-			end = len(noSpaces)
+		// Take up to 5 characters
+		count := 0
+		for count < 5 && i < len(noSpaces) {
+			result += string(noSpaces[i])
+			i++
+			count++
 		}
-		result += noSpaces[i:end]
-		i = end
 
-		// Skip one character
-		i++
+		// After taking 5, skip one character based on remaining
+		if count == 5 && i < len(noSpaces) {
+			remaining := len(noSpaces) - i
+			if remaining > 6 || remaining == 2 {
+				i++ // Skip this character
+			}
+		}
 
 		// Add space if there are more characters to process
 		if i < len(noSpaces) {
