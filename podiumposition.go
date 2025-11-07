@@ -1,11 +1,11 @@
 package piscine
 
 func PodiumPosition(podium [][]string) [][]string {
-	var result [][]string
+	length := len(podium)
 
-	for i := len(podium) - 1; i >= 0; i-- {
-		result = append(result, podium[i])
+	for i := 0; i < length/2; i++ {
+		podium[i], podium[length-1-i] = podium[length-1-i], podium[i]
 	}
 
-	return result
+	return podium
 }
