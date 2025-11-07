@@ -1,35 +1,41 @@
 package piscine
 
-func LoafOfBread(str string) string {
-	if len(str) < 5 {
-		return "Invalid Output\n"
-	}
-
-	var result string
+func LastOfBread(str string) string {
+	runes := []rune(str)
+	n := len(runes)
 	i := 0
-	n := len(str)
+	words := []string{}
 
-	for i < n {
-		var currentWord string
-		for len(currentWord) < 5 && i < n {
-			char := str[i]
-			if char != ' ' {
-				currentWord += string(char)
+	for {
+		wordRunes := []rune{}
+		for i < n && len(wordRunes) < 5 {
+			if runes[i] != ' ' {
+				wordRunes = append(wordRunes, runes[i])
 			}
 			i++
 		}
 
-		result += currentWord
+		if len(wordRunes) == 0 {
+			break
+		}
 
+		if len(words) == 0 && len(wordRunes) < 5 {
+			return "Invalid Output\n"
+		}
+
+		words = append(words, string(wordRunes))
 		if i < n {
 			i++
-
-			if i < n {
-				result += " "
-			}
 		}
 	}
 
-	result += "\n"
-	return result
+	output := ""
+	for index, char := range words {
+		if index > 0 {
+			output += " "
+		}
+		output += char
+	}
+	output += "\n"
+	return output
 }
