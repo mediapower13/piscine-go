@@ -32,7 +32,7 @@ func AtoiBase(s string, base string) int {
 				break
 			}
 		}
-		
+
 		// If char not in base, return 0
 		if pos == -1 {
 			return 0
