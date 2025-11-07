@@ -1,11 +1,10 @@
 package piscine
 
 func PodiumPosition(podium [][]string) [][]string {
-	// Reverse the order of the podium positions
-	result := make([][]string, len(podium))
+	var result [][]string
 
-	for i := 0; i < len(podium); i++ {
-		result[i] = podium[len(podium)-1-i]
+	for i := len(podium) - 1; i >= 0; i-- {
+		result = append(result, podium[i])
 	}
 
 	return result
