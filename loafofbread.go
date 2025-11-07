@@ -1,7 +1,6 @@
 package piscine
 
 func LoafOfBread(str string) string {
-
 	if len(str) < 5 {
 		return "Invalid Output\n"
 	}
@@ -12,7 +11,6 @@ func LoafOfBread(str string) string {
 
 	for i < n {
 		var currentWord string
-
 		for len(currentWord) < 5 && i < n {
 			char := str[i]
 			if char != ' ' {
@@ -24,7 +22,7 @@ func LoafOfBread(str string) string {
 		result += currentWord
 
 		if i < n {
-			i++ // Skip the next character
+			i++
 
 			if i < n {
 				result += " "
@@ -32,7 +30,6 @@ func LoafOfBread(str string) string {
 		}
 	}
 
-	// Add the final newline
 	result += "\n"
 	return result
 }
