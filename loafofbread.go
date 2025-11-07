@@ -5,7 +5,6 @@ func LastOfBread(str string) string {
 	n := len(runes)
 	i := 0
 	words := []string{}
-
 	for {
 		wordRunes := []rune{}
 		for i < n && len(wordRunes) < 5 {
@@ -14,21 +13,17 @@ func LastOfBread(str string) string {
 			}
 			i++
 		}
-
 		if len(wordRunes) == 0 {
 			break
 		}
-
 		if len(words) == 0 && len(wordRunes) < 5 {
 			return "Invalid Output\n"
 		}
-
 		words = append(words, string(wordRunes))
 		if i < n {
 			i++
 		}
 	}
-
 	output := ""
 	for index, char := range words {
 		if index > 0 {
