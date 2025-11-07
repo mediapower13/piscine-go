@@ -8,7 +8,7 @@ type point struct {
 }
 
 func setPoint(ptr *point) {
-	// assign untyped rune '*' (42) directly to int without conversion
+
 	ptr.x = '*'
 	ptr.y = ptr.x / 2
 }
