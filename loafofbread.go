@@ -7,6 +7,7 @@ func LoafOfBread(str string) string {
 
 	result := ""
 	count := 0
+	skip := false
 
 	for i := 0; i < len(str); i++ {
 		// Skip spaces when counting characters
@@ -14,21 +15,21 @@ func LoafOfBread(str string) string {
 			continue
 		}
 
+		// Skip one non-space character after every 5 characters
+		if skip {
+			skip = false
+			continue
+		}
+
 		// Add non-space character to result
 		result += string(str[i])
 		count++
 
-		// After 5 characters, add space and skip next character
+		// After 5 characters, add space and mark to skip next non-space
 		if count == 5 {
 			result += " "
 			count = 0
-			// Skip the next character (including spaces until we find a non-space to skip)
-			i++
-			for i < len(str) && str[i] == ' ' {
-				i++
-			}
-			// Now we're at a non-space character, and the loop will increment i again
-			// So we don't need to do anything else here
+			skip = true
 		}
 	}
 
