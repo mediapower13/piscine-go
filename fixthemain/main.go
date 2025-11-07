@@ -31,12 +31,12 @@ func CloseDoor(ptrDoor *Door) bool {
 
 func IsDoorOpen(ptrDoor *Door) bool {
 	PrintStr("is the Door opened ?")
-	return ptrDoor.state == OPEN
+	return ptrDoor.state
 }
 
 func IsDoorClose(ptrDoor *Door) bool {
 	PrintStr("is the Door closed ?")
-	return ptrDoor.state == CLOSE
+	return !ptrDoor.state
 }
 
 func main() {
@@ -49,7 +49,7 @@ func main() {
 	if IsDoorOpen(door) {
 		CloseDoor(door)
 	}
-	if door.state == OPEN {
+	if door.state {
 		CloseDoor(door)
 	}
 }
