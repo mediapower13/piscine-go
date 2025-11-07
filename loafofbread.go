@@ -28,7 +28,7 @@ func LoafOfBread(str string) string {
 		// After taking 5, skip one character based on remaining
 		if count == 5 && i < len(noSpaces) {
 			remaining := len(noSpaces) - i
-			if remaining > 6 || remaining == 2 {
+			if remaining >= 6 || remaining == 2 {
 				i++ // Skip this character
 			}
 		}
